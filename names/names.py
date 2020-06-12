@@ -7,18 +7,6 @@ class ListNode:
         self.prev = prev
         self.next = next
 
-    def insert_after(self, value):
-        current_next = self.next
-        self.next = ListNode(value, self, current_next)
-        if current_next:
-            current_next.prev = self.next
-
-    def insert_before(self, value):
-        current_prev = self.prev
-        self.prev = ListNode(value, current_prev, self)
-        if current_prev:
-            current_prev.next = self.prev
-
     def delete(self):
         if self.prev:
             self.prev.next = self.next
@@ -30,9 +18,6 @@ class DoublyLinkedList:
         self.head = node
         self.tail = node
         self.length = 1 if node is not None else 0
-
-    def __len__(self):
-        return self.length
 
     def add_to_head(self, new_node):
         self.length += 1
